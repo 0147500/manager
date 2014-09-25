@@ -10,7 +10,7 @@
   
     <!-- If you are using the CSS version, only link these 2 files, you may add app.css to use for your overrides if you like -->
     {{ HTML::Style('//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css') }}
-    {{ HTML::Style('//bootswatch.com/sandstone/bootstrap.min.css') }}
+    {{ HTML::Style('http://bootswatch.com/cosmo/bootstrap.min.css') }}
     {{ HTML::Style('css/login.css') }}
   
     <!-- If you are using the gem version, you need this only -->
