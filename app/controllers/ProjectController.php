@@ -26,5 +26,23 @@ class ProjectController extends BaseController{
         {
             return Redirect::to('projects/new')->withErrors($validator)->withInput();
         }
+        $project = new Project;
+        
+        $project->name = Input::get('name');
+        $project->description = Input::get('description');
+        $project->status = Input::get('status');
+        $project->shared = null;
+        $project->owner = Sentry::getUser()->id;
+        $project->deadline = date();
+        
+        if($project->save()){
+            return Redirect::to('projects/all')->with('message','Your project has been created.');
+        }else{
+            return Redirect::to('projects/new')->withErrors($validator)->withInput();
+        }
+        
+        
+        
+        
     }
 }
