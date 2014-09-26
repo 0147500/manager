@@ -8,4 +8,4 @@ web1:
     - gd
     - mcrypt
   after_build:
-    - "php composer.phar update"
+    - "php ./composer.phar update"
