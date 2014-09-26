@@ -1,9 +1,16 @@
 <?php
 class ProjectController extends BaseController{
     public function getAll(){
-        return View::make('project.all');
+        $project = Project::where('owner', '=', Sentry::getUser()->id)->paginate(6);
+        return View::make('project.all')->with('projects', $project);
     }
-    public function getDetail($user, $id){
+    public function getDetail($id){
+        $project = Project::where('owner', '=', Sentry::getUser()->id)->where('id','=',$id)->first();
+        if(empty($project)){
+            return View::make('project.404');
+        }else{
+            return View::make('project.detail')->with('project',$project);    
+        }
         
     }
     public function getMy(){
@@ -31,18 +38,14 @@ class ProjectController extends BaseController{
         $project->name = Input::get('name');
         $project->description = Input::get('description');
         $project->status = Input::get('status');
-        $project->shared = null;
+        $project->shared = "none";
         $project->owner = Sentry::getUser()->id;
-        $project->deadline = date();
+        $project->deadline = date("Y-m-d");
         
         if($project->save()){
             return Redirect::to('projects/all')->with('message','Your project has been created.');
         }else{
             return Redirect::to('projects/new')->withErrors($validator)->withInput();
         }
-        
-        
-        
-        
     }
 }

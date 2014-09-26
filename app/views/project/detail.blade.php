@@ -13,22 +13,17 @@
             </div>
             <div class="col-md-9 well">
                 <div class="row">
-                    @foreach($projects as $project)
-                        <div class="col-sm-6">
-                            <div class="panel panel-default"> 
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">{{ Link_to("/projects/detail/". Sentry::getUser()->id ."/" . $project->id, 'testproject') }}</h3>
-                                </div>
-                                <div class="panel-body">
-                                    {{$project->description}}
-                                </div>
+                    <div class="col-sm-12">
+                        <div class="panel panel-default"> 
+                            <div class="panel-heading">
+                                <h3 class="panel-title">{{ $project->name }}</h3>
+                            </div>
+                            <div class="panel-body">
+                                <p>{{ $project->description }}</p>
                             </div>
                         </div>
-                    @endforeach
+                    </div>
                 </div>
-                <center>
-                {{ $projects->links() }}
-                </center>   
             </div>
         </div>
     </div>
