@@ -14,12 +14,12 @@ web1:
   - app/storage/meta
   - app/storage/sessions
   - app/storage/views
-  after_build:
-  - "if [ ! -f composer.phar ]; then curl -s http://getcomposer.org/installer | php; fi; php composer.phar install --prefer-source --no-progress --no-dev"
-  after_deploy:
-  - "php artisan cache:clear"
-  - "rm -f app/storage/views/*"
+  #after_build:
+  #- "if [ ! -f composer.phar ]; then curl -s http://getcomposer.org/installer | php; fi; php composer.phar update --prefer-source --no-progress --no-dev"
+  #after_deploy:
+  #- "php artisan cache:clear"
+  #- "rm -f app/storage/views/*"
   before_deploy:
-  - "php artisan migrate"
-  - "php artisan migrate --package=cartalyst/sentry"
-  - "php aritsan db:seed"
+  #- "php artisan migrate"
+  #- "php artisan migrate --package=cartalyst/sentry"
+  - "php artisan db:seed"
