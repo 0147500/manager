@@ -26,5 +26,5 @@ web1:
   #- "php artisan migrate"
   #- "php artisan migrate --package=cartalyst/sentry"
   #- "php artisan db:seed"
-  cache1:
-    type: redis
+cache1:
+  type: redis

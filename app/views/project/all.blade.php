@@ -16,7 +16,7 @@
                         <div class="col-sm-6">
                             <div class="panel panel-default"> 
                                 <div class="panel-heading">
-                                    <h3 class="panel-title">{{ Link_to("/projects/detail/". $project->id, 'testproject') }}</h3>
+                                    <h3 class="panel-title">{{ Link_to("/projects/detail/". $project->id, $project->name) }}</h3>
                                 </div>
                                 <div class="panel-body">
                                     {{$project->description}}
