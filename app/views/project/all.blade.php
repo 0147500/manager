@@ -1,12 +1,16 @@
 @extends('layouts.master')
 
 @section('content')
+    
     <div class="container">
         <div class="row">
             <div class="col-md-3">
                 @include('project.nav')
             </div>
             <div class="col-md-9 well">
+                <div class="row">
+                        <center><h1 style="margin-top:-10px;">All projects:</h1></center>
+                </div>
                 <div class="row">
                     @foreach($projects as $project)
                         <div class="col-sm-6">

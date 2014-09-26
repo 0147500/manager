@@ -8,6 +8,9 @@
             </div>
             <div class="col-md-9 well">
                 <div class="row">
+                        <center><h1 style="margin-top:-10px;margin-bottom:-10px;">Project overview:</h1></center>
+                </div>
+                <div class="row">
                     <div class="col-sm-12">
                         <div class="page-header">
                             <h1>{{ $project->name }} <small>{{ $project->status }}</small></h1>
