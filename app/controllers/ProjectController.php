@@ -22,6 +22,16 @@ class ProjectController extends BaseController{
         }
     }
     public function postEdit($id){
+        $validator = Validator::make(Input::all(),
+            array(
+                'name' => 'required',
+                'description' => 'required|min:8'
+            )
+        );
+        if ($validator->fails())
+        {
+            return Redirect::to('projects/detail/' . $project->id)->withErrors($validator)->withInput();
+        }
         $project = Project::where('owner', '=', Sentry::getUser()->id)->where('id','=',$id)->first();
         $project->name = Input::get('name');
         $project->description = Input::get('description');
