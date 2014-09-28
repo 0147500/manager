@@ -22,6 +22,7 @@ class ProjectController extends BaseController{
         }
     }
     public function postEdit($id){
+        $project = Project::where('owner', '=', Sentry::getUser()->id)->where('id','=',$id)->first();
         $validator = Validator::make(Input::all(),
             array(
                 'name' => 'required',
@@ -30,9 +31,8 @@ class ProjectController extends BaseController{
         );
         if ($validator->fails())
         {
-            return Redirect::to('projects/detail/' . $project->id)->withErrors($validator)->withInput();
+            return Redirect::to('projects/edit/' . $project->id)->withErrors($validator)->withInput();
         }
-        $project = Project::where('owner', '=', Sentry::getUser()->id)->where('id','=',$id)->first();
         $project->name = Input::get('name');
         $project->description = Input::get('description');
         $project->status = Input::get('status');
@@ -64,7 +64,6 @@ class ProjectController extends BaseController{
             return Redirect::to('projects/new')->withErrors($validator)->withInput();
         }
         $project = new Project;
-        
         $project->name = Input::get('name');
         $project->description = Input::get('description');
         $project->status = Input::get('status');

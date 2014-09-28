@@ -69,5 +69,9 @@ require $framework.'/Illuminate/Foundation/start.php';
 | from the actual running of the application and sending responses.
 |
 */
+Theme::init('blue', array(
+    'public_dirname' => 'theme',    // Base dirname for contain all themes, relative to public path.
+    'views_path' => app_path('views'),  // Change the path to contain theme templates.
+));
 
 return $app;

@@ -20,5 +20,6 @@ Route::group(array('before' => 'auth'), function()
 	Route::get('/', 'ClientController@getAll');
 	Route::Controller('clients', 'ClientController');
 	Route::Controller('projects', 'ProjectController');
+	Route::Controller('tasks', 'TaskController');
 	Route::get('account/logout', 'AccountController@getLogout');
 });

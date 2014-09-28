@@ -10,8 +10,8 @@
   
     <!-- If you are using the CSS version, only link these 2 files, you may add app.css to use for your overrides if you like -->
     {{ HTML::Style('//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.min.css') }}
-    {{ HTML::Style('http://bootswatch.com/cosmo/bootstrap.min.css') }}
-    {{ HTML::Style('css/app.css') }}
+    {{ HTML::Style(Theme::asset('css/bootstrap.min.css')) }}
+    {{ HTML::Style(Theme::asset('css/app.css')) }}
   
     <!-- If you are using the gem version, you need this only -->
     <link rel="stylesheet" href="css/app.css">
@@ -29,6 +29,7 @@
         </div>
     @endif
     @yield('content')
+    @include('task.newmodal')
   <!-- body content here -->
     {{ HTML::Script('//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js') }}
     {{ HTML::Script('//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js') }}

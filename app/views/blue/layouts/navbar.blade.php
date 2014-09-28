@@ -16,11 +16,11 @@
               <ul class="nav navbar-nav">
                 <li>{{ link_to('/','Dashboard') }}</li>
                 <li>{{ link_to('projects/all','projects') }}</li>
-                <li><a href="#">Link</a></li>
+                <li>{{ link_to('tasks/all','tasks') }}</li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
                 <li><a href="#">Link</a></li>
-                <li><a href="#">Link</a></li>
+                <li><a href="#" data-toggle="modal" data-target=".bs-example-modal-lg">New task</a></li>
                 <li>{{ link_to('account/logout', 'Logout') }}</li>		        
               </ul>
             </div><!-- /.navbar-collapse -->
