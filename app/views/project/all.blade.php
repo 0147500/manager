@@ -2,12 +2,11 @@
 
 @section('content')
     
-    <div class="container">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-offset-1 col-md-3">
                 @include('project.nav')
             </div>
-            <div class="col-md-9 well">
+            <div class="col-md-7 well">
                 <div class="row">
                         <center><h1 style="margin-top:-10px;">All projects:</h1></center>
                 </div>
@@ -30,5 +29,4 @@
                 </center>   
             </div>
         </div>
-    </div>
 @stop

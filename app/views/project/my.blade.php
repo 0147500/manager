@@ -1,12 +1,11 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="container">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-offset-1 col-md-3">
             @include('project.nav')
         </div>
-        <div class="col-md-9 well">
+        <div class="col-md-7 well">
             <div class="row">
                 <div class=""col-sm-5">
                         <div class="panel panel-default"> 
@@ -32,5 +31,4 @@
             </div>
         </div>
     </div>
-</div>
 @stop

@@ -13,6 +13,26 @@ class ProjectController extends BaseController{
         }
         
     }
+    public function getEdit($id){
+        $project = Project::where('owner', '=', Sentry::getUser()->id)->where('id','=',$id)->first();
+        if(empty($project)){
+            return View::make('project.404');
+        }else{
+            return View::make('project.edit')->with('project',$project);    
+        }
+    }
+    public function postEdit($id){
+        $project = Project::where('owner', '=', Sentry::getUser()->id)->where('id','=',$id)->first();
+        $project->name = Input::get('name');
+        $project->description = Input::get('description');
+        $project->status = Input::get('status');
+        if($project->save()){
+            return Redirect::to('projects/detail/' . $project->id)->with('message', 'Project updated');  
+        }else{
+            return Redirect::to('projects/detail/' . $project->id)->with('message', 'Project update failed');  
+        }
+        
+    }
     public function getMy(){
         return View::make('project.my');
     }
@@ -47,5 +67,9 @@ class ProjectController extends BaseController{
         }else{
             return Redirect::to('projects/new')->withErrors($validator)->withInput();
         }
+    }
+    
+    public function getTest(){
+        return View::make('project.test');
     }
 }
