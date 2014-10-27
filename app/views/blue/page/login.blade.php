@@ -14,7 +14,6 @@
     {{ HTML::Style('css/login.css') }}
   
     <!-- If you are using the gem version, you need this only -->
-    <link rel="stylesheet" href="css/app.css">
   
     {{HTML::Script('//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.min.js') }}
 </head>

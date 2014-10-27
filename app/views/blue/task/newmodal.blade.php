@@ -11,7 +11,10 @@
         {{ $errors->first('description') }}
             
             {{ Form::label('name', 'Task name', array('class' => 'control-label'))}}
-            {{ Form::text('name',null,array('class' => 'form-control', 'placeholder' => 'Project name', 'required' => ''))}}
+            {{ Form::text('name',null,array('class' => 'form-control', 'placeholder' => 'Task name', 'required' => ''))}}
+            <br>
+            {{ Form::label('description', 'Task description', array('class' => 'control-label'))}}
+            {{ Form::textarea('description',null,array('class' => 'form-control', 'placeholder' => 'Task description', 'required' => ''))}}
             <br>
             {{ Form::label('project_id', 'Project', array('class' => 'control-label'))}}
             <?php
